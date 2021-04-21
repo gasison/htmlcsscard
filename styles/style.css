@@ -1,0 +1,264 @@
+:root {
+  --ff-lato: 'Inter', sans-serif;
+  --ff-lexend: 'Lexend', sans-serif;
+
+  --bg-color-primary: #1b1937;
+
+  --txt-color-primary: #fff;
+  --txt-color-secondary: #ab5cdb;
+
+  --fw-700: 700;
+  --fw-400: 400;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  height: 100vh;
+  background-color: black;
+  font-family: var(--ff-lato);
+  font-weight: var(--fw-400);
+  color: var(--txt-color-primary);
+  line-height: 1.5625rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 5rem;
+  grid-template-areas:
+    'main'
+    'footer';
+}
+
+h1 {
+  line-height: 2.75rem;
+}
+
+p {
+  opacity: 0.75;
+  font-weight: var(--fw-400);
+  font-size: 0.9rem;
+}
+
+span {
+  color: var(--txt-color-secondary);
+}
+
+main {
+  grid-area: main;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer {
+  grid-area: footer;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-main {
+  width: 1110px;
+  height: 446px;
+  background: var(--bg-color-primary);
+  box-shadow: 0px 20px 20px -10px rgba(23, 25, 41, 0.203087);
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 'intro img';
+}
+
+.split__intro {
+  grid-area: intro;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem;
+  position: relative;
+  gap: 1rem;
+}
+
+.intro-text {
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+  font-weight: var(--fw-400);
+  font-size: 0.9375rem;
+}
+
+.intro-text > p {
+  width: 95%;
+}
+
+.intro-stats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.stat p {
+  font-family: var(--ff-lexend);
+  margin-top: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.6;
+}
+
+.split__header-img {
+  min-height: 20vh;
+  grid-area: img;
+  position: relative;
+  background-color: var(--txt-color-secondary);
+  background-image: url(/images/image-header-desktop.jpg);
+  background-size: cover;
+  background-blend-mode: multiply;
+  opacity: 0.75;
+  border-radius: 0 8px 8px 0;
+}
+
+@media (max-width: 1024px) {
+  body {
+    padding: 1rem;
+    text-align: center;
+  }
+  .card-main {
+    width: 70vw;
+    min-height: 90vh;
+    margin: auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      'img'
+      'intro';
+  }
+
+  .split__header-img {
+    border-radius: 8px 8px 0 0;
+  }
+
+  .intro-text h1,
+  .intro-text {
+    margin-bottom: 0.3rem;
+    width: 100%;
+  }
+  .intro-stats {
+    font-size: 1.5rem;
+    padding: 2rem 0;
+    flex-direction: column;
+  }
+
+  .attribution {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 968px) {
+  .card-main {
+    min-height: 80vh;
+  }
+  h1 {
+    font-size: 1.75rem;
+    line-height: 2rem;
+  }
+
+  p {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 680px) {
+  h2 {
+    font-size: 1.5rem;
+  }
+  .card-main {
+    min-height: 90vh;
+  }
+
+  .intro-text {
+    max-height: 11rem;
+  }
+
+  .split__intro {
+    padding: 1rem;
+  }
+
+  .intro-stats {
+    margin-top: 0.8rem;
+    gap: 0.5rem;
+    padding: 0.8rem 0;
+  }
+
+  .stat p {
+    margin-top: 0.2rem;
+  }
+}
